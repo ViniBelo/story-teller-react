@@ -2,7 +2,7 @@ import { storyGenerator } from "@/services/generator";
 import styles from "@/styles";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { MotiView } from 'moti';
+import { MotiView, ScrollView } from 'moti';
 
 export default function Index() {
   const [informations, setInformations] = useState("");
@@ -30,30 +30,32 @@ export default function Index() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Storyteller</Text>
-      <Text style={styles.subtitle}>Your studies journey starts here.</Text>
-      <TextInput
-        onChangeText={setInformations}
-        value={informations}
-        style={styles.input}
-        placeholder="Informations to search the history..."
-      ></TextInput>
-      <TouchableOpacity style={styles.button} onPress={searchHistory}>
-        <Text style={styles.buttonText}>Search history</Text>
-      </TouchableOpacity>
-      {
-        history && (
-          <MotiView
-            style={styles.card}
-            from={{ opacity: 0, translateX: 200 }}
-            animate={{ opacity: 1, translateX: 0 }}
-          >
-            <Text style={styles.cardTitle}>Your story is done:</Text>
-            <Text style={styles.cardText}>{history}</Text>
-          </MotiView>
-        )
-      }
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Storyteller</Text>
+        <Text style={styles.subtitle}>Your studies journey starts here.</Text>
+        <TextInput
+          onChangeText={setInformations}
+          value={informations}
+          style={styles.input}
+          placeholder="Informations to search the history..."
+        ></TextInput>
+        <TouchableOpacity style={styles.button} onPress={searchHistory}>
+          <Text style={styles.buttonText}>Search history</Text>
+        </TouchableOpacity>
+        {
+          history && (
+            <MotiView
+              style={styles.card}
+              from={{ opacity: 0, translateX: 200 }}
+              animate={{ opacity: 1, translateX: 0 }}
+            >
+              <Text style={styles.cardTitle}>Your story is done:</Text>
+              <Text style={styles.cardText}>{history}</Text>
+            </MotiView>
+          )
+        }
+      </View>
+    </ScrollView>
   );
 }
