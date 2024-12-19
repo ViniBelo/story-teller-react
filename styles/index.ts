@@ -5,60 +5,66 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#F8F8F8",
         padding: 20,
-        alignItems: "center"
     },
     title: {
         fontSize: 28,
         fontWeight: "bold",
-        marginBottom: 20,
+        textAlign: "center",
+        marginBottom: 10,
     },
     subtitle: {
-        fontSize: 20,
+        fontSize: 16,
+        textAlign: "center",
         marginBottom: 20,
     },
+    chatContainer: {
+        flex: 1,
+        marginBottom: 20,
+    },
+    aiMessage: {
+        alignSelf: "flex-start",
+        backgroundColor: "#E0F7FA",
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 5,
+        maxWidth: "80%",
+    },
+    userMessage: {
+        alignSelf: "flex-end",
+        backgroundColor: "#D1C4E9",
+        borderRadius: 10,
+        padding: 10,
+        marginVertical: 5,
+        maxWidth: "80%",
+    },
+    messageText: {
+        fontSize: 16,
+        color: "#000",
+    },
+    inputContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
     input: {
-        width: "90%",
+        flex: 1,
         borderWidth: 1,
         borderColor: "#000",
-        padding: 16,
-        fontSize: 18,
+        padding: 10,
+        fontSize: 16,
         borderRadius: 10,
-        marginBottom: 20
+        marginRight: 10,
     },
     button: {
-        width: "90%",
-        height: 50,
         backgroundColor: "#0A7EA4",
-        justifyContent: "center",
-        alignItems: "center",
+        padding: 10,
         borderRadius: 10,
-        marginBottom: 20
     },
     buttonText: {
-        fontSize: 18,
-        color: "#fff",
-        fontWeight: "bold"
-    },
-    card: {
-        width: "90%",
-        padding: 20,
-        backgroundColor: "#fff",
-        borderRadius: 10,
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 4,
-        elevation: 2
-    },
-    cardTitle: {
-        fontSize: 18,
+        color: "#FFF",
         fontWeight: "bold",
-        marginBottom: 10
-    },
-    cardText: {
         fontSize: 16,
-        lineHeight: 24
-    }
+    },
 });
 
 export default styles;
