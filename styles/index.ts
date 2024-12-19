@@ -7,15 +7,10 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     title: {
-        fontSize: 28,
+        fontSize: 20,
         fontWeight: "bold",
         textAlign: "center",
         marginBottom: 10,
-    },
-    subtitle: {
-        fontSize: 16,
-        textAlign: "center",
-        marginBottom: 20,
     },
     chatContainer: {
         flex: 1,

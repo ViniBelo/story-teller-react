@@ -34,8 +34,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Storyteller AI</Text>
-      <Text style={styles.subtitle}>Chat with AI to leran history!</Text>
+      <Text style={styles.title}>Chat with AI to leran history!</Text>
 
       <ScrollView style={styles.chatContainer} contentContainerStyle={{ paddingBottom: 20 }}>
         {chat.map((message, index) => (
@@ -53,7 +52,7 @@ export default function Index() {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Type your message here..."
+          placeholder="Type your instructions here..."
           value={informations}
           onChangeText={setInformations}
         />
