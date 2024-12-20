@@ -4,10 +4,11 @@ import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MotiView, ScrollView } from 'moti';
 import FormField from "@/components/form";
+import Title from "@/components/title";
 
 export default function Index() {
   const [informations, setInformations] = useState("");
-  const [chat, setChat] = useState(Array);
+  const [chat, setChat] = useState(Array());
   const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = async () => {
@@ -35,7 +36,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Chat with AI to leran history!</Text>
+      <Title title="Chat with AI to leran history!"></Title>
 
       <ScrollView style={styles.chatContainer} contentContainerStyle={{ paddingBottom: 20 }}>
         {chat.map((message, index) => (
@@ -49,6 +50,7 @@ export default function Index() {
           </MotiView>
         ))}
       </ScrollView>
+      
       <FormField
         informations={informations}
         setInformations={setInformations}
