@@ -22,7 +22,7 @@ const FormField = (props: IFormField) => {
                 <Text style={styles.buttonText}>{isLoading ? "Sending..." : "Send"}</Text>
             </TouchableOpacity>
         </View>
-    )
+    );
 };
 
 export default FormField;

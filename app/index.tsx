@@ -5,6 +5,7 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MotiView, ScrollView } from 'moti';
 import FormField from "@/components/form";
 import Title from "@/components/title";
+import Messages from "@/components/messages";
 
 export default function Index() {
   const [informations, setInformations] = useState("");
@@ -38,19 +39,8 @@ export default function Index() {
     <View style={styles.container}>
       <Title title="Chat with AI to leran history!"></Title>
 
-      <ScrollView style={styles.chatContainer} contentContainerStyle={{ paddingBottom: 20 }}>
-        {chat.map((message, index) => (
-          <MotiView
-            key={index}
-            style={message.sender === "ai" ? styles.aiMessage : styles.userMessage}
-            from={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-          >
-            <Text style={styles.messageText}>{message.text}</Text>
-          </MotiView>
-        ))}
-      </ScrollView>
-      
+      <Messages chat={chat}></Messages>
+
       <FormField
         informations={informations}
         setInformations={setInformations}
