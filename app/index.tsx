@@ -3,6 +3,7 @@ import styles from "@/styles";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MotiView, ScrollView } from 'moti';
+import FormField from "@/components/form";
 
 export default function Index() {
   const [informations, setInformations] = useState("");
@@ -48,18 +49,12 @@ export default function Index() {
           </MotiView>
         ))}
       </ScrollView>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Type your instructions here..."
-          value={informations}
-          onChangeText={setInformations}
-        />
-        <TouchableOpacity style={styles.button} onPress={sendMessage} disabled={isLoading}>
-          <Text style={styles.buttonText}>{isLoading ? "Sending..." : "Send"}</Text>
-        </TouchableOpacity>
-      </View>
+      <FormField
+        informations={informations}
+        setInformations={setInformations}
+        onPress={sendMessage}
+        isLoading={isLoading}
+      />
     </View>
   );
 }
