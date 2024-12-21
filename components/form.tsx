@@ -1,6 +1,7 @@
 import styles from "@/styles"
 import { Text, TextInput, TouchableOpacity, View } from "react-native"
 
+// Interface for FormField component properties
 interface IFormField {
     informations: string;
     setInformations: (text: string) => void;
@@ -8,6 +9,7 @@ interface IFormField {
     isLoading?: boolean;
 };
 
+// Component responsible for taking user input and send to the method recieved from onPress property
 const FormField = (props: IFormField) => {
     const { informations, setInformations, onPress, isLoading } = props
     return (
