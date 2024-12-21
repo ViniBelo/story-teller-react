@@ -1,7 +1,10 @@
 const Groq = require("groq-sdk");
 
 const groq = new Groq({ apiKey: process.env.EXPO_PUBLIC_GROQ_API_KEY });
-export async function storyGenerator(informations: string) {
+
+// Function responsible for finding the story based on given informations using AI
+export async function historyFetcher(informations: string) {
+    // Training of the AI to our current app context
     const chatCompletion = await groq.chat.completions.create({
         "messages": [
             {
@@ -51,5 +54,6 @@ export async function storyGenerator(informations: string) {
         "top_p": 1,
     });
 
+    // Returns the message answer from the AI
     return chatCompletion.choices[0]?.message?.content;
 }
