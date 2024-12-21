@@ -5,11 +5,11 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MotiView, ScrollView } from 'moti';
 import FormField from "@/components/form";
 import Title from "@/components/title";
-import Messages from "@/components/messages";
+import Messages, { IMessage } from "@/components/messages";
 
 export default function Index() {
   const [informations, setInformations] = useState("");
-  const [chat, setChat] = useState(Array());
+  const [chat, setChat] = useState(Array<IMessage>());
   const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = async () => {

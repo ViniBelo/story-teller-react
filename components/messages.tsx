@@ -2,7 +2,7 @@ import styles from "@/styles";
 import { MotiView } from "moti";
 import { Text, ScrollView } from "react-native";
 
-interface IMessage {
+export interface IMessage {
     sender: string;
     text: string;
 }
