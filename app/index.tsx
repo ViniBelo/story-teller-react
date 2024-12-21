@@ -3,10 +3,13 @@ import styles from "@/styles";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { MotiView, ScrollView } from 'moti';
+import FormField from "@/components/form";
+import Title from "@/components/title";
+import Messages, { IMessage } from "@/components/messages";
 
 export default function Index() {
   const [informations, setInformations] = useState("");
-  const [chat, setChat] = useState(Array);
+  const [chat, setChat] = useState(Array<IMessage>());
   const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = async () => {
@@ -34,32 +37,16 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Chat with AI to leran history!</Text>
+      <Title title="Chat with AI to leran history!"></Title>
 
-      <ScrollView style={styles.chatContainer} contentContainerStyle={{ paddingBottom: 20 }}>
-        {chat.map((message, index) => (
-          <MotiView
-            key={index}
-            style={message.sender === "ai" ? styles.aiMessage : styles.userMessage}
-            from={{ opacity: 0, translateY: 20 }}
-            animate={{ opacity: 1, translateY: 0 }}
-          >
-            <Text style={styles.messageText}>{message.text}</Text>
-          </MotiView>
-        ))}
-      </ScrollView>
+      <Messages chat={chat}></Messages>
 
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Type your instructions here..."
-          value={informations}
-          onChangeText={setInformations}
-        />
-        <TouchableOpacity style={styles.button} onPress={sendMessage} disabled={isLoading}>
-          <Text style={styles.buttonText}>{isLoading ? "Sending..." : "Send"}</Text>
-        </TouchableOpacity>
-      </View>
+      <FormField
+        informations={informations}
+        setInformations={setInformations}
+        onPress={sendMessage}
+        isLoading={isLoading}
+      />
     </View>
   );
 }
