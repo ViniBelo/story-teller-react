@@ -1,8 +1,7 @@
 import { storyGenerator } from "@/services/generator";
 import styles from "@/styles";
 import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
-import { MotiView, ScrollView } from 'moti';
+import { View } from "react-native";
 import FormField from "@/components/form";
 import Title from "@/components/title";
 import Messages, { IMessage } from "@/components/messages";

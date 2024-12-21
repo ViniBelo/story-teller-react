@@ -38,6 +38,10 @@ export async function storyGenerator(informations: string) {
             },
             {
                 "role": "user",
+                "content": "Quero a resposta em inglês"
+            },
+            {
+                "role": "user",
                 "content": `Com isso, quero que me conte a história do seguinte evento: ${informations}`
             }
         ],
